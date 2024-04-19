@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
+             x:Class="language_app.Views.AboutPage"
+             xmlns:vm="clr-namespace:language_app.ViewModels"
+             x:Name="APage"
+             Title="Главное меню"
+             BackgroundColor="#151515">
+
+    <Shell.TitleView>
+        <Grid>
+            <Label Text="Главное меню" TextColor="White" FontSize="20" Margin="0, 15, 0, 0"/>
+        </Grid>
+    </Shell.TitleView>
+
+    <ContentPage.BindingContext>
+        <vm:AboutViewModel />
+    </ContentPage.BindingContext>
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Color x:Key="Accent">#151515</Color>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <ScrollView x:Name="scrl" VerticalScrollBarVisibility="Never" HorizontalScrollBarVisibility="Never">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <Grid x:Name="main_grid" IsVisible="True">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" x:Name="My_Course_Height"/>
+                    <RowDefinition Height="Auto" x:Name="All_Course_Height"/>
+                </Grid.RowDefinitions>
+            </Grid>
+            <ActivityIndicator x:Name="indicator" Grid.Row="2" IsVisible="false" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" Color="#33ff33" IsRunning="True"/>
+        </Grid>
+    </ScrollView>
+
+</ContentPage>

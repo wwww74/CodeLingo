@@ -1,0 +1,190 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             xmlns:progressBars="clr-namespace:Com.Igniscor.Controls.ProgressBar;assembly=Com.Igniscor.Controls"
+             x:Class="language_app.Views.ContentLesson"
+             BackgroundColor="#202020"
+             Shell.NavBarIsVisible="False">
+    
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <Frame Grid.Row="0" HasShadow="false" CornerRadius="0" BackgroundColor="#202020" Padding="0">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="37"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+                <ImageButton Grid.Row="0" Source="close.png" HorizontalOptions="StartAndExpand" Margin="20, 20, 0, 0" Clicked="Close_btn_Clicked"/>
+                <progressBars:DetailedProgressBar x:Name="progressBar" Grid.Row="1" Margin="10, 15, 10, 0" Orientation="Horizontal" PercentageValue="0" OuterCornerRadius="20" InnerCornerRadius="20" FontSize="0" PrimaryTextColor="Black" SecondaryTextColor="White" StartProgressColor="#33ff33" EndProgressColor="#91C035" StartBackgroundColor="#303030" EndBackgroundColor="#303030" HeightRequest="15"/>
+            </Grid>
+        </Frame>
+        <CarouselView x:Name="MainCarousel" Grid.Row="1" PositionChanged="MainCarousel_PositionChanged">
+            <CarouselView.ItemTemplate>
+                <DataTemplate>
+                    <StackLayout Padding="0, 0, 15, 0">
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                            </Grid.RowDefinitions>
+                            <Label Grid.Row="0" Text="{Binding H0}" FontSize="30" TextColor="White" Margin="15, 20, 0, 0"/>
+                            <Label Grid.Row="0" Text="{Binding H0_1}" FontSize="20" TextColor="White" Margin="15, 30, 0, 0"/>
+                            <Label Grid.Row="5" Text="{Binding H0_2}" FontSize="30" TextColor="White" Margin="15, 20, 0, 0"/>
+                            <Label Grid.Row="1" Text="{Binding H1}" FontSize="20" TextColor="White" Margin="15, 30, 0, 0"/>
+                            <Label Grid.Row="1" Text="{Binding H1_1}" FontSize="20" TextColor="White" HorizontalOptions="CenterAndExpand" Margin="90, 30, 0, 0"/>
+                            <Label Grid.Row="2" Text="{Binding H2}" FontSize="20" TextColor="White" Margin="15, 0, 0, 0"/>
+                            <Label Grid.Row="3" Text="{Binding H6}" FontSize="20" TextColor="White" Margin="15, 0, 0, 0"/>
+                            <Label Grid.Row="4" Text="{Binding H7}" FontSize="20" TextColor="White" Margin="15, 0, 0, 0"/>
+                            <Label Grid.Row="6" Text="{Binding H9}" FontSize="20" TextColor="White" Margin="15, 0, 0, 0"/>
+                            <Label Grid.Row="5" Text="{Binding H8}" FontSize="20" TextColor="White" Margin="15, 35, 0, 0"/>
+                            <Label Grid.Row="3" Text="{Binding H3}" HorizontalOptions="EndAndExpand" FontSize="20" TextColor="White" Margin="120, 25, 0, 0"/>
+                            <Label Grid.Row="4" Text="{Binding H4}" HorizontalOptions="EndAndExpand" FontSize="20" TextColor="White" Margin="120, 25, 0, 0"/>
+                            <Label Grid.Row="5" Text="{Binding H5}" HorizontalOptions="EndAndExpand" FontSize="20" TextColor="White" Margin="120, 25, 0, 0"/>
+                            <Image Grid.Row="3" Source="{Binding img}" HorizontalOptions="StartAndExpand" Scale="0.4"/>
+                            <Button x:Name="False_btn" Grid.Row="1" IsVisible="{Binding False_btn}" Text="Неверно" BackgroundColor="#202020" Margin="20, 30, 20, 0" BorderColor="White" BorderWidth="1" CornerRadius="10" Clicked="False_btn_Clicked"/>
+                            <Button x:Name="True_btn" Grid.Row="2" IsVisible="{Binding True_btn}" Text="Верно" BackgroundColor="#202020" Margin="20, 10, 20, 0" BorderColor="White" BorderWidth="1" CornerRadius="10" Clicked="True_btn_Clicked"/>
+                            <Button x:Name="Answer_btn" Grid.Row="2" IsVisible="{Binding Answer_btn}" Text=" ''NEW MESSAGE!'' " BackgroundColor="#202020" HorizontalOptions="CenterAndExpand" Margin="20, 30, 20, 0" BorderColor="White" BorderWidth="1" CornerRadius="10" Clicked="Answer_btn_Clicked"/>
+                            <Button Grid.Row="6" Text="Продолжить" BackgroundColor="#202020" Margin="0, 100, 0, 0" BorderColor="White" BorderWidth="1" CornerRadius="10" HorizontalOptions="CenterAndExpand" Padding="30, 0, 30, 0" Clicked="Next_page_Clicked"/>
+                            <Button Grid.Row="7" IsVisible="{Binding btn_stop}" Text="Закончить" BackgroundColor="#202020" Margin="0, 100, 0, 0" BorderColor="White" BorderWidth="1" CornerRadius="10" HorizontalOptions="CenterAndExpand" Padding="30, 0, 30, 0" Clicked="Button_Clicked"/>
+                            <Frame Grid.Row="1" IsVisible="{Binding frame_1}" BackgroundColor="#151515" CornerRadius="10" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" Margin="0, 25, 0, 0" HasShadow="False" WidthRequest="30"/>
+                            <Frame Grid.Row="3" IsVisible="{Binding frame_2}" BackgroundColor="#151515" HorizontalOptions="CenterAndExpand" CornerRadius="10" HasShadow="False" Margin="0, 40, 0, 0" WidthRequest="350">
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="Auto"/>
+                                    </Grid.RowDefinitions>
+                                    <Label Grid.Row="0" Text="Console.WriteLine" FontSize="20" TextColor="#66b2ff" HorizontalOptions="StartAndExpand" Margin="0, 0, 0, 0"/>
+                                    <Label Grid.Row="0" Text="(" HorizontalOptions="CenterAndExpand" FontSize="20" TextColor="White" Margin="0, 0, 25, 0"/>
+                                    <Label Grid.Row="0" Text=" 'Welcome to C#!' " HorizontalOptions="EndAndExpand" FontSize="20" TextColor="#66ffb2" Margin="0, 0, 20, 0"/>
+                                    <Label Grid.Row="0" Text=");" HorizontalOptions="EndAndExpand" FontSize="20" TextColor="White" Margin="0, 0, 10, 0"/>
+                                </Grid>
+                            </Frame>
+                        </Grid>
+                    </StackLayout>
+                </DataTemplate>
+            </CarouselView.ItemTemplate>
+        </CarouselView>
+
+        <!--<StackLayout Grid.Row="1" IsVisible="false" x:Name="Page1">
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                            </Grid.RowDefinitions>
+                            <Label Grid.Row="0" Text="Добро пожаловать в С#!" FontSize="30" TextColor="White" Margin="15, 20, 0, 0"/>
+                            <Label Grid.Row="1" Text="C# (произносится как See-Sharp) - один из самых популярных современных языков программирования." FontSize="20" TextColor="White" Margin="15, 20, 0, 0"/>
+                            <Label Grid.Row="2" Text="С# элегантен и мощен. Вы можете использовать его для создания видеоигр, веб-приложений, мобильных приложений, приложений баз данных и многого другого." FontSize="20" TextColor="White" Margin="15, 0, 0, 0"/>
+                            <Image Grid.Row="3" Source="info.png" HorizontalOptions="StartAndExpand" Scale="0.4"/>
+                            <Label Grid.Row="3" Text="Этот курс поможет вам быстро и самым простым способом написать свои собственные программы на C#, чтобывы могли решать реальные проблемы и задачи и создавать свои собственные приложения." HorizontalOptions="EndAndExpand" FontSize="20" TextColor="White" Margin="120, 25, 0, 0"/>
+                            <Button Grid.Row="4" Text="Продолжить" BackgroundColor="#202020" Margin="0, 100, 0, 0" BorderColor="White" BorderWidth="1" CornerRadius="10" HorizontalOptions="CenterAndExpand" Padding="30, 0, 30, 0" Clicked="Next_page_Clicked"/>
+                        </Grid>
+                    </StackLayout>
+        <StackLayout Grid.Row="1" IsVisible="False" x:Name="Page2">
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                            </Grid.RowDefinitions>
+                            <Label Grid.Row="0" Text="Программирование" FontSize="30" TextColor="White" Margin="15, 20, 0, 0"/>
+                            <Label Grid.Row="1" Text="Суть большинства компьютерных программ - создание выводов. Приведём несколько примеров:" FontSize="20" TextColor="White" Margin="15, 30, 0, 0"/>
+                            <Label Grid.Row="2" Text="- Уведомления 'Вы получили новое сообщение' " FontSize="20" TextColor="White" Margin="15, 0, 0, 0"/>
+                            <Label Grid.Row="3" Text="- Текст 'Game Over', который отображается на экране, когда вы играете в видеоигры" FontSize="20" TextColor="White" Margin="15, 0, 0, 0"/>
+                            <Label Grid.Row="4" Text="- Остаток денег на вашем счёте, когда вы заходите в приложение для интернет-банкинга." FontSize="20" TextColor="White" Margin="15, 0, 0, 0"/>
+                            <Label Grid.Row="5" Text="Самый простой вывод - отображение сообщений на экране." FontSize="20" TextColor="White" Margin="15, 35, 0, 0"/>
+                            <Button Grid.Row="6" Text="Продолжить" BackgroundColor="#202020" Margin="0, 100, 0, 0" BorderColor="White" BorderWidth="1" CornerRadius="10" HorizontalOptions="CenterAndExpand" Padding="30, 0, 30, 0" Clicked="Button_Clicked"/>
+                        </Grid>
+                    </StackLayout>
+        <StackLayout Grid.Row="1" IsVisible="False" x:Name="Page3">
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                            </Grid.RowDefinitions>
+                            <Label Grid.Row="0" Text="Уведомления и текст, отображаемые на экране, являются примерами выводом, создаваемых компьютерными программами." FontSize="20" TextColor="White" Margin="15, 30, 0, 0"/>
+                            <Button x:Name="False_btn" Grid.Row="1" Text="Неверно" BackgroundColor="#202020" Margin="20, 30, 20, 0" BorderColor="White" BorderWidth="1" CornerRadius="10" Clicked="False_btn_Clicked"/>
+                            <Button x:Name="True_btn" Grid.Row="2" Text="Верно" BackgroundColor="#202020" Margin="20, 10, 20, 0" BorderColor="White" BorderWidth="1" CornerRadius="10" Clicked="True_btn_Clicked"/>
+                            <Button x:Name="Continue_btn" Grid.Row="3" IsEnabled="False" Text="Проверить" BackgroundColor="#202020" Margin="0, 100, 0, 0" BorderColor="White" BorderWidth="1" CornerRadius="10" HorizontalOptions="CenterAndExpand" Padding="30, 0, 30, 0" Clicked="Button_Clicked_1"/>
+                        </Grid>
+                    </StackLayout>
+        <StackLayout Grid.Row="1" IsVisible="False" x:Name="Page4">
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                            </Grid.RowDefinitions>
+                            <Label Grid.Row="0" Text="Вывод" FontSize="30" TextColor="White" Margin="15, 20, 0, 0"/>
+                            <Label Grid.Row="1" Text="С помощью выводов программисты проверяют, что компьютер следует заданным инструкциям, а также исправляют ошибки в коде." FontSize="20" TextColor="White" Margin="15, 20, 0, 0"/>
+                            <Label Grid.Row="2" Text="Следующая строка кода отображает сообщение на экране в качестве вывода." FontSize="20" TextColor="White" Margin="15, 0, 0, 0"/>
+                            <Frame Grid.Row="3" BackgroundColor="#151515" HorizontalOptions="CenterAndExpand" CornerRadius="10" HasShadow="False" Margin="0, 40, 0, 0" WidthRequest="350">
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="Auto"/>
+                                    </Grid.RowDefinitions>
+                                    <Label Grid.Row="0" Text="Console.WriteLine" FontSize="20" TextColor="#66b2ff" HorizontalOptions="StartAndExpand" Margin="0, 0, 0, 0"/>
+                                    <Label Grid.Row="0" Text="(" HorizontalOptions="CenterAndExpand" FontSize="20" TextColor="White" Margin="0, 0, 25, 0"/>
+                                    <Label Grid.Row="0" Text=" 'Welcome to C#!' " HorizontalOptions="EndAndExpand" FontSize="20" TextColor="#66ffb2" Margin="0, 0, 20, 0"/>
+                                    <Label Grid.Row="0" Text=");" HorizontalOptions="EndAndExpand" FontSize="20" TextColor="White" Margin="0, 0, 10, 0"/>
+                                </Grid>
+                            </Frame>
+                            <Button Grid.Row="4" Text="Продолжить" BackgroundColor="#202020" Margin="0, 100, 0, 0" BorderColor="White" BorderWidth="1" CornerRadius="10" HorizontalOptions="CenterAndExpand" Padding="30, 0, 30, 0" Clicked="Button_Clicked"/>
+                        </Grid>
+                    </StackLayout>
+        <StackLayout Grid.Row="1" IsVisible="False" x:Name="Page5">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+                <Label Grid.Row="0" Text="Выберите элемент, чтобы создать строку кода, которая выводит 'New message'." FontSize="20" TextColor="White" Margin="15, 30, 0, 0"/>
+                <Label Grid.Row="1" Text="Console.WriteLine(" FontSize="20" TextColor="White" Margin="15, 30, 0, 0"/>
+                <Frame Grid.Row="1" BackgroundColor="#151515" CornerRadius="10" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" Margin="0, 25, 0, 0" HasShadow="False" WidthRequest="30"/>
+                <Label Grid.Row="1" Text=");" FontSize="20" TextColor="White" HorizontalOptions="CenterAndExpand" Margin="90, 30, 0, 0"/>
+                <Button x:Name="Answer_btn" Grid.Row="2" Text="'New message'" BackgroundColor="#202020" HorizontalOptions="CenterAndExpand" Margin="20, 30, 20, 0" BorderColor="White" BorderWidth="1" CornerRadius="10" Clicked="Answer_btn_Clicked"/>
+                <Button Grid.Row="3" IsEnabled="False" Text="Проверить" BackgroundColor="#202020" Margin="0, 100, 0, 0" BorderColor="White" BorderWidth="1" CornerRadius="10" HorizontalOptions="CenterAndExpand" Padding="30, 0, 30, 0" Clicked="Button_Clicked_1"/>
+            </Grid>
+        </StackLayout>
+        <StackLayout Grid.Row="1" IsVisible="False" x:Name="Page6">
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                            </Grid.RowDefinitions>
+                            <Label Grid.Row="0" Text="Резюме урока" FontSize="30" TextColor="White" Margin="15, 20, 0, 0"/>
+                            <Label Grid.Row="1" Text="Отлично! Вы прошли ваш первый урок." FontSize="20" TextColor="White" Margin="15, 30, 0, 0"/>
+                            <Label Grid.Row="2" Text="Помните о следующих важных моментах:" FontSize="20" TextColor="White" Margin="15, 0, 0, 0"/>
+                            <Label Grid.Row="3" Text="∘ Для создания выводов используется инструкция Console.WriteLine" FontSize="20" TextColor="White" Margin="15, 0, 0, 0"/>
+                            <Label Grid.Row="4" Text="∘ За инструкцией Console.WriteLine должны следовать круглые скобки" FontSize="20" TextColor="White" Margin="15, 0, 0, 0"/>
+                            <Label Grid.Row="5" Text="Идем дальше?" FontSize="30" TextColor="White" Margin="15, 20, 0, 0"/>
+                            <Label Grid.Row="6" Text="На следующем уроке вы создадите код с несколькими строками и различными типами данных." FontSize="20" TextColor="White" Margin="15, 0, 0, 0"/>
+                            <Button Grid.Row="7" Text="Продолжить" BackgroundColor="#202020" Margin="0, 100, 0, 0" BorderColor="White" BorderWidth="1" CornerRadius="10" HorizontalOptions="CenterAndExpand" Padding="30, 0, 30, 0" Clicked="Button_Clicked"/>
+                        </Grid>
+                    </StackLayout>-->
+    </Grid>
+</ContentPage>

@@ -1,0 +1,64 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="language_app.Views.Feedback"
+             xmlns:vm="clr-namespace:language_app.ViewModels"
+             Title="{Binding Title}"
+             BackgroundColor="#151515"
+             Shell.BackgroundColor="#151515">
+
+    <ContentPage.BindingContext>
+        <vm:FeedbackViewModel />
+    </ContentPage.BindingContext>
+
+    <Shell.TitleView>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <Label Text="Обратная связь" TextColor="White" FontSize="20" Margin="0, 15, 0, 0"/>
+        </Grid>
+    </Shell.TitleView>
+
+    <StackLayout>
+        <Frame HasShadow="True" CornerRadius="10" Margin="20, 20, 20, 0" HeightRequest="330" Padding="0" VerticalOptions="StartAndExpand" BackgroundColor="#252525">
+            <Grid>
+                <StackLayout>
+                    <Label Text="Обратная связь" TextColor="White" FontSize="35" HorizontalOptions="CenterAndExpand" Margin="0, 15, 0, 10"/>
+                    <Grid RowSpacing="20">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                        </Grid.RowDefinitions>
+
+                        <Frame x:Name="Max_Prog" Grid.Row="0" HasShadow="True" CornerRadius="10" Margin="20, 0, 20, 0" HeightRequest="50" HorizontalOptions="FillAndExpand" BackgroundColor="#373737">
+                            <Frame.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding OpenAcc_Max}"/>
+                            </Frame.GestureRecognizers>
+                            <Grid>
+                                <Image Source="max.jpg" HorizontalOptions="StartAndExpand" Margin="10, 0, 0, 0" BackgroundColor="#373737"/>
+                                <Label Text="Имя:" TextColor="White" FontSize="19" Margin="100, -5, 0, 0" HorizontalOptions="StartAndExpand"/>
+                                <Label Text="Telegram:" TextColor="White" FontSize="19" Margin="100, 25, 0, 0" HorizontalOptions="StartAndExpand"/>
+                                <Label Text="Max" TextColor="White" FontSize="18" Margin="150, -5, 0, 0" HorizontalOptions="StartAndExpand"/>
+                                <Label Text="@wwww74" TextColor="White" FontSize="17" Margin="190, 25, 0, 0" HorizontalOptions="StartAndExpand"/>
+                            </Grid>
+                        </Frame>
+                        <Frame x:Name="Andrew_Prog" Grid.Row="1" HasShadow="True" CornerRadius="10" Margin="20, 0, 20, 0" HeightRequest="50" HorizontalOptions="FillAndExpand" BackgroundColor="#373737">
+                            <Frame.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding OpenAcc_Andrew}"/>
+                            </Frame.GestureRecognizers>
+                            <Grid>
+                                <Image Source="max.jpg" HorizontalOptions="StartAndExpand" Margin="10, 0, 0, 0" BackgroundColor="#373737"/>
+                                <Label Text="Имя:" TextColor="White" FontSize="19" Margin="100, -5, 0, 0" HorizontalOptions="StartAndExpand"/>
+                                <Label Text="Telegram:" TextColor="White" FontSize="19" Margin="100, 25, 0, 0" HorizontalOptions="StartAndExpand"/>
+                                <Label Text="Andrew" TextColor="White" FontSize="18" Margin="150, -5, 0, 0" HorizontalOptions="StartAndExpand"/>
+                                <Label Text="@SqrtWave" TextColor="White" FontSize="17" Margin="190, 25, 0, 0" HorizontalOptions="StartAndExpand"/>
+                            </Grid>
+                        </Frame>
+                    </Grid>
+                    <Label Text="Оцените приложение плз" TextColor="#181818" FontSize="19" Margin="0, 10, 0, 0" HorizontalOptions="CenterAndExpand"/>
+                </StackLayout>
+            </Grid>
+        </Frame>
+    </StackLayout>
+</ContentPage>

@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="language_app.Views.StartCourse"
+             BackgroundColor="#151515">
+    <Shell.TitleView>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <Label Text="Начало курса" TextColor="White" FontSize="20" Margin="0, 15, 0, 0"/>
+        </Grid>
+    </Shell.TitleView>
+    <Frame x:Name="fr" HeightRequest="180" HasShadow="True" CornerRadius="10" Margin="20, 20, 20, 0" Padding="0" VerticalOptions="StartAndExpand" BackgroundColor="#252525">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+            <StackLayout x:Name="stack">
+            </StackLayout>
+            </Grid>
+    </Frame>
+</ContentPage>

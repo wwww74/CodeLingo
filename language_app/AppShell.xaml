@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Shell xmlns="http://xamarin.com/schemas/2014/forms" 
+       xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+       xmlns:local="clr-namespace:language_app.Views"
+       Title="Menu"
+       x:Class="language_app.AppShell"
+       NavigationPage.HasBackButton="False"
+       FlyoutBehavior="Flyout"
+       FlyoutBackgroundColor="#202020"
+       FlyoutVerticalScrollMode="Disabled">
+
+    <Shell.Resources>
+        <ResourceDictionary>
+            <Style x:Key="BaseStyle" TargetType="Element">
+                <Setter Property="Shell.BackgroundColor" Value="#151515" />
+                <Setter Property="Shell.ForegroundColor" Value="white" />
+                <Setter Property="Shell.TitleColor" Value="White"/>
+                <Setter Property="Shell.DisabledColor" Value="#202020" />
+                <Setter Property="Shell.UnselectedColor" Value="#202020" />
+                <Setter Property="Shell.TabBarBackgroundColor" Value="#151515" />
+                <Setter Property="Shell.TabBarForegroundColor" Value="#151515"/>
+                <Setter Property="Shell.TabBarUnselectedColor" Value="#151515"/>
+                <Setter Property="Shell.TabBarTitleColor" Value="White"/>
+            </Style>
+            <Style TargetType="TabBar" BasedOn="{StaticResource BaseStyle}" />
+            <Style TargetType="FlyoutItem" BasedOn="{StaticResource BaseStyle}" />
+
+            <Style Class="FlyoutItemLabelStyle" TargetType="Label">
+                <Setter Property="TextColor" Value="White"></Setter>
+                <Setter Property="FontSize" Value="17"></Setter>
+                <Setter Property="FontFamily" Value="EvolveLight"></Setter>
+            </Style>
+            <Style Class="FlyoutItemLayoutStyle" TargetType="Layout" ApplyToDerivedTypes="True">
+                <Setter Property="Margin" Value="0, 10, 0, 0"/>
+                <Setter Property="VisualStateManager.VisualStateGroups">
+                    <VisualStateGroupList>
+                        <VisualStateGroup x:Name="CommonStates">
+                            <VisualState x:Name="Normal">
+                                <VisualState.Setters>
+                                    <Setter Property="Margin" Value="0, 0, 0, 0"/>
+                                    <Setter Property="BackgroundColor" Value="#202020" />
+                                    <Setter TargetName="FlyoutItemLabel" Property="Label.TextColor" Value="white" />
+                                </VisualState.Setters>
+                            </VisualState>
+                            <VisualState x:Name="Selected">
+                                <VisualState.Setters>
+                                    <Setter Property="BackgroundColor" Value="#252525" />
+                                </VisualState.Setters>
+                            </VisualState>
+                        </VisualStateGroup>
+                    </VisualStateGroupList>
+                </Setter>
+            </Style>
+
+            <Style Class="MenuItemLayoutStyle" TargetType="Layout" ApplyToDerivedTypes="True">
+                <Setter Property="VisualStateManager.VisualStateGroups">
+                    <VisualStateGroupList>
+                        <VisualStateGroup x:Name="CommonStates">
+                            <VisualState x:Name="Normal">
+                                <VisualState.Setters>
+                                    <Setter TargetName="FlyoutItemLabel" Property="Label.TextColor" Value="white" />
+                                </VisualState.Setters>
+                            </VisualState>
+                        </VisualStateGroup>
+                    </VisualStateGroupList>
+                </Setter>
+            </Style>
+        </ResourceDictionary>
+    </Shell.Resources>
+
+    <Shell.FlyoutHeaderTemplate>
+        <DataTemplate>
+            <StackLayout>
+                <Grid WidthRequest="100" HeightRequest="158" BackgroundColor="#101010">
+                    <Image Source="header_icon.png" Scale="0.50" HorizontalOptions="StartAndExpand"/>
+                    <Label
+                        Text="CodeLingo"
+                        VerticalOptions="CenterAndExpand"
+                        HorizontalOptions="EndAndExpand"
+                        TextColor="White"
+                        FontSize="35"
+                        FontFamily="EvolveBold"
+                        Margin="0, 0, 70, 0"/>
+                </Grid>
+            </StackLayout>
+        </DataTemplate>
+    </Shell.FlyoutHeaderTemplate>
+
+    <ShellContent Title="Профиль" Icon="user.png" Route="Profile" ContentTemplate="{DataTemplate local:Profile}" />
+
+    <FlyoutItem Shell.TabBarIsVisible="false" FlyoutDisplayOptions="AsMultipleItems">
+        <ShellContent x:Name="APage" Title="Главное меню" Icon="home.png" Route="AboutPage" ContentTemplate="{DataTemplate local:AboutPage}" />
+        <ShellContent Title="Избранное" Icon="ribbon.png" Route="Favourites" ContentTemplate="{DataTemplate local:Favourites}" />
+        <ShellContent Title="Достижения" Icon="crown.png" Route="Achievement" ContentTemplate="{DataTemplate local:Achievement}" />
+    </FlyoutItem>
+
+    <ShellContent Title="Обратная связь" Icon="feedback.png" Route="Feedback" ContentTemplate="{DataTemplate local:Feedback}" />
+    
+</Shell>

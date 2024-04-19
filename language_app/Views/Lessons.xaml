@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="language_app.Views.Lessons"
+             Title="Уроки"
+             BackgroundColor="#151515">
+
+    <Shell.TitleView>
+        <Grid x:Name="lTitleView">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+        </Grid>
+    </Shell.TitleView>
+
+    <ScrollView x:Name="scrl" VerticalScrollBarVisibility="Never" HorizontalScrollBarVisibility="Never">
+        <Grid x:Name="main_grid">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <Frame Grid.Row="0" x:Name="Part_Content" IsVisible="false" HasShadow="True" CornerRadius="10" Margin="20, 10, 20, 0" BackgroundColor="#252525">
+                <Grid x:Name="Part_Grid">
+                    <Grid.RowDefinitions>
+                    </Grid.RowDefinitions>
+                </Grid>
+            </Frame>
+            <ActivityIndicator x:Name="indicator" Grid.Row="2" IsVisible="false" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" Color="#33ff33" IsRunning="True"/>
+        </Grid>
+    </ScrollView>
+</ContentPage>

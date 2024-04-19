@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             x:Class="language_app.Views.Favourites"
+             BackgroundColor="#151515">
+
+    <Shell.TitleView>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <Label Text="Избранное" TextColor="White" FontSize="20" Margin="0, 15, 0, 0"/>
+        </Grid>
+    </Shell.TitleView>
+
+    <ScrollView x:Name="scrl" VerticalScrollBarVisibility="Never" HorizontalScrollBarVisibility="Never">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <Grid x:Name="main_grid" IsVisible="True">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+            </Grid>
+            <ActivityIndicator x:Name="indicator" Grid.Row="2" IsVisible="false" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" Color="#33ff33" IsRunning="True"/>
+        </Grid>
+    </ScrollView>
+</ContentPage>

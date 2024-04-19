@@ -1,0 +1,86 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="language_app.Views.Profile"
+             Title="Профиль"
+             BackgroundColor="#151515"
+             Shell.BackgroundColor="#151515">
+    <Shell.TitleView>
+        <Grid x:Name="sTitleView">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+            <Label Grid.Row="0" Grid.Column="0" Text="Профиль" TextColor="White" FontSize="20" Margin="0, 15, 0, 0"/>
+            <ImageButton x:Name="close_acc" Grid.Row="0" Grid.Column="4" Source="exit_acc.png" BackgroundColor="#151515" Scale="0.8" Margin="10, 12, 0, 0" Clicked="ImageButton_Clicked"/>
+        </Grid>
+    </Shell.TitleView>
+    <ScrollView x:Name="ScrollV" VerticalScrollBarVisibility="Never" HorizontalScrollBarVisibility="Never">
+        <StackLayout>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+                <Frame x:Name="ProfileHeader" Grid.Row="0" HeightRequest="110" HasShadow="True" VerticalOptions="StartAndExpand" BackgroundColor="#202020">
+                    <BoxView x:Name="bdGradient" Scale="1.4">
+                        <BoxView.Background>
+                            <LinearGradientBrush StartPoint="1,0" EndPoint="1,1">
+                                <GradientStop Color="#505050" Offset="0"/>
+                                <GradientStop Color="#353535" Offset="0.5"/>
+                                <GradientStop Color="#252525" Offset="0.75"/>
+                                <GradientStop Color="#151515" Offset="1"/>
+                            </LinearGradientBrush>
+                        </BoxView.Background>
+                    </BoxView>
+                </Frame>
+                <Frame x:Name="ProfileBody" Grid.Row="1" Margin="0, -12, 0, 0" BackgroundColor="#151515">
+                    <Grid x:Name="Personal_Body_Grid">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                        </Grid.RowDefinitions>
+                        <Ellipse Grid.Row="0" Fill="#151515" WidthRequest="120" HeightRequest="120" Margin="0, -80, 0, 0" HorizontalOptions="CenterAndExpand" VerticalOptions="StartAndExpand"/>
+                        <Ellipse Grid.Row="0" Fill="#252525" WidthRequest="110" HeightRequest="110" Margin="0, -75, 0, 0" HorizontalOptions="CenterAndExpand" VerticalOptions="StartAndExpand"/>
+                        <Frame x:Name="Frame_name" IsVisible="false" Grid.Row="1" BackgroundColor="#202020" HasShadow="False">
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="Auto"/>
+                                </Grid.RowDefinitions>
+                                <Label Text="Имя: " TextColor="White" FontSize="17" Margin="-20, 0, 0, 0"/>
+                                <Entry x:Name="Entry_name" Text="Максим" HeightRequest="40" Margin="25, -13, 0, 0" TextColor="White" Placeholder="Введите имя" FontSize="17" FontFamily="EvolveLight"/>
+                            </Grid>
+                        </Frame>
+                        <Frame x:Name="Frame_mail" IsVisible="false" Grid.Row="2" BackgroundColor="#202020" HasShadow="False" Margin="0, -35, 0, 0">
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="Auto"/>
+                                </Grid.RowDefinitions>
+                                <Label Text="Почта: " TextColor="White" FontSize="17" Margin="-20, 0, 0, 0"/>
+                                <Entry x:Name="Entry_mail" Text="m_m4vr1n@mail.ru" HeightRequest="40" Margin="40, -13, 0, 0" TextColor="White" Placeholder="Введите почту" FontSize="17" FontFamily="EvolveLight"/>
+                            </Grid>
+                        </Frame>
+                        <Frame x:Name="Frame_number" IsVisible="false"  Grid.Row="3" BackgroundColor="#202020" HasShadow="False" Margin="0, -35, 0, 0">
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="Auto"/>
+                                </Grid.RowDefinitions>
+                                <Label Text="Телефон: " TextColor="White" FontSize="17" Margin="-20, 0, 0, 0"/>
+                                <Entry x:Name="Entry_number" Text="+79016500814" HeightRequest="40" Margin="55, -13, 0, 0" TextColor="White" Placeholder="Введите номер телефона" FontSize="17" FontFamily="EvolveLight"/>
+                            </Grid>
+                        </Frame>
+                        <Button x:Name="exit_btn" IsVisible="false" Grid.Row="4" Text="Отменить" CornerRadius="10" TextColor="WHite" BorderWidth="1" BorderColor="White" HorizontalOptions="StartAndExpand" Padding="20, 0, 20, 0" Margin="20, 0, 0, 0" Clicked="exit_btn_Clicked"/>
+                        <Button x:Name="save_btn" IsVisible="false" Grid.Row="4" Text="Сохранить" CornerRadius="10" TextColor="WHite" BorderWidth="1" BorderColor="White" HorizontalOptions="EndAndExpand" Padding="20, 0, 20, 0" Margin="0, 0, 40, 0" Clicked="save_btn_Clicked"/>
+                    </Grid>
+                </Frame>
+            </Grid>
+        </StackLayout>
+    </ScrollView>
+</ContentPage>
